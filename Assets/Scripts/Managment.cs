@@ -6,6 +6,7 @@ public class Managment : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private SelectableOdject _hovered;
+    [SerializeField] private List<SelectableOdject> _listOfSelected;
 
     private void Update()
     {
@@ -15,10 +16,75 @@ public class Managment : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.GetComponent<SelectableCollider>()) 
+            if (hit.collider.GetComponent<SelectableCollider>())
             {
-                _hovered = hit.collider.GetComponent<SelectableCollider>().SelectableOdject;
+                SelectableOdject hitSelectable = hit.collider.GetComponent<SelectableCollider>().SelectableOdject;
+                if (_hovered)
+                {
+                    if (_hovered != hitSelectable)
+                    {
+                        _hovered.OnUnHover();
+                        _hovered = hitSelectable;
+                        _hovered.OnHover();
+                    }
+                }
+                else
+                {
+                    _hovered = hitSelectable;
+                    _hovered.OnHover();
+                }
             }
+            else
+            {
+                UnhoverCurrent();
+            }
+        }
+        else
+        {
+            UnhoverCurrent();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (_hovered)
+            {
+                if (Input.GetKey(KeyCode.LeftControl) == false)
+                {
+                    UnSelectAll();
+                }
+                Select(_hovered);
+            }
+            else
+            {
+                UnSelectAll();
+            }
+        }
+
+        if (Input.GetMouseButtonUp(1)) {
+            UnSelectAll();
+        }
+    }
+
+    private void Select(SelectableOdject selectableOdject) {
+        if (_listOfSelected.Contains(selectableOdject) == false) {
+            _listOfSelected.Add(selectableOdject);
+            _hovered.Select();
+        }
+    }
+    private void UnSelectAll()
+    {
+        for (int i = 0; i < _listOfSelected.Count; i++)
+        {
+            _listOfSelected[i].UnSelect();
+        }
+        _listOfSelected.Clear();
+    }
+    private void UnhoverCurrent()
+    {
+        if (_hovered)
+        {
+            _hovered.OnUnHover();
+            _hovered = null;
         }
     }
 }

@@ -11,19 +11,19 @@ public class SelectableOdject : MonoBehaviour
     }
 
 
-    protected virtual void OnHover()
+    public virtual void OnHover()
     {
         transform.localScale = Vector3.one * 1.1f; 
     }
-    protected virtual void OnUnHover()
+    public virtual void OnUnHover()
     {
         transform.localScale = Vector3.one;
     }
-    protected virtual void Select()
+    public virtual void Select()
     {
         _selectIndicator.SetActive(true);
     }
-    protected virtual void UnSelected()
+    public virtual void UnSelect()
     {
         _selectIndicator.SetActive(false);
     }
