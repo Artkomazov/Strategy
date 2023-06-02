@@ -27,4 +27,9 @@ public class SelectableOdject : MonoBehaviour
     {
         _selectIndicator.SetActive(false);
     }
+
+    public virtual void WhenClickOnGround(Vector3 point)
+    {
+        
+    }
 }

@@ -54,9 +54,17 @@ public class Managment : MonoBehaviour
                 }
                 Select(_hovered);
             }
-            else
+            //else
+            //{
+            //    UnSelectAll();
+            //}
+
+            if (hit.collider.tag == "Ground")
             {
-                UnSelectAll();
+                for (int i = 0; i < _listOfSelected.Count; i++)
+                {
+                    _listOfSelected[i].WhenClickOnGround(hit.point);
+                }
             }
         }
 
