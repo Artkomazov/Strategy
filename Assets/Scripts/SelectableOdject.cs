@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelectableOdject : MonoBehaviour
 {
-    [SerializeField] private GameObject _selectIndicator;
+    [SerializeField] protected GameObject _selectIndicator;
     private void Start()
     {
         _selectIndicator.SetActive(false);
