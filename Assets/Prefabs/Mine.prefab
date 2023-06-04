@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2468822372262071041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.21, y: 0, z: -1.84}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectIndicator: {fileID: 2468822372677519906}
-  _price: 5
-  _xSixe: 2
+  _renderer: {fileID: 6879656480142047221}
+  _xSize: 2
   _zSize: 2
+  _price: 5
 --- !u!1 &2468822372677519906
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,5 +256,10 @@ MonoBehaviour:
 --- !u!4 &5691373802007075699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3795641af5fea4841a5d5acd53b755d6, type: 3}
+  m_PrefabInstance: {fileID: 5292128877721025688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6879656480142047221 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7635826562936255635, guid: 3795641af5fea4841a5d5acd53b755d6, type: 3}
   m_PrefabInstance: {fileID: 5292128877721025688}
   m_PrefabAsset: {fileID: 0}
