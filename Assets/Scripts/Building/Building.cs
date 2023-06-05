@@ -6,6 +6,7 @@ public class Building : SelectableOdject
 {
     private Color _startColor;
     [SerializeField] private Renderer _renderer;
+    [SerializeField] private GameObject _menuObject;
 
     [SerializeField] private int _xSize = 3;
     [SerializeField] private int _zSize = 3;
@@ -15,10 +16,17 @@ public class Building : SelectableOdject
     public int ZSize { get { return _zSize; } set { _zSize = value; } }
     public int Price { get { return _price; } set { _price = value; } }
 
+    public override void Start()
+    {
+        base.Start();
+        _menuObject.SetActive(false);
+    }
+
     private void Awake()
     {
         _startColor = _renderer.material.color;
     }
+
 
     private void OnDrawGizmos()
     {
@@ -32,6 +40,17 @@ public class Building : SelectableOdject
             }
         }
 
+    }
+
+    public override void Select()
+    {
+        base.Select();
+        _menuObject.SetActive(true);
+    }
+    public override void UnSelect()
+    {
+        base.UnSelect();
+        _menuObject.SetActive(false);
     }
 
     public void DisplayUnacceptablePosition()

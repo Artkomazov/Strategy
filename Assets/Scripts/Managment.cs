@@ -25,8 +25,7 @@ public class Managment : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red);
 
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.collider.GetComponent<SelectableCollider>())
             {
@@ -73,7 +72,7 @@ public class Managment : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                if (hit.collider.tag == "Ground")
+                if (hit.collider.CompareTag("Ground"))
                 {
                     for (int i = 0; i < _listOfSelected.Count; i++)
                     {
@@ -107,7 +106,7 @@ public class Managment : MonoBehaviour
                 _frameImage.enabled = true;
                 _frameImage.rectTransform.anchoredPosition = min;
                 _frameImage.rectTransform.sizeDelta = sizeFrame;
-                Rect rect = new Rect(min, sizeFrame);
+                Rect rect = new(min, sizeFrame);
 
                 UnSelectAll();
                 Unit[] allUnits = FindObjectsOfType<Unit>();

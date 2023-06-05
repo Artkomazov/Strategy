@@ -53,7 +53,7 @@ public class BuildingPlacer : MonoBehaviour
         {
             for (int z = 0; z < building.ZSize; z++)
             {
-                Vector2Int coordinate = new Vector2Int(xPosition + x, zPosition + z);
+                Vector2Int coordinate = new(xPosition + x, zPosition + z);
                 if (_buildingDictionary.ContainsKey(coordinate))
                 {
                     return false;
@@ -71,7 +71,7 @@ public class BuildingPlacer : MonoBehaviour
         {
             for (int z = 0; z < building.ZSize; z++)
             {
-                Vector2Int coordinate = new Vector2Int(xPosition + x, zPosition + z);
+                Vector2Int coordinate = new(xPosition + x, zPosition + z);
                 _buildingDictionary.Add(coordinate, _currentBuilding);
             }
         }
