@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selectIndicator: {fileID: 467402712159806948}
   _navMeshAgent: {fileID: 6572714611983909351}
+  _price: 5
 --- !u!195 &6572714611983909351
 NavMeshAgent:
   m_ObjectHideFlags: 0

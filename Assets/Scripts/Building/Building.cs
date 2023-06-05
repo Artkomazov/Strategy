@@ -10,7 +10,7 @@ public class Building : SelectableOdject
 
     [SerializeField] private int _xSize = 3;
     [SerializeField] private int _zSize = 3;
-    [SerializeField] private int _price = 1;
+    [SerializeField] private int _price = 0;
 
     public int XSize { get { return _xSize; } set { _xSize = value; } }
     public int ZSize { get { return _zSize; } set { _zSize = value; } }
